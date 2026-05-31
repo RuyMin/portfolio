@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Experience">
@@ -31,9 +32,9 @@ import Layout from "../layouts/Layout.astro";
           <span>MSA</span>
         </div>
         <div class="timeline-projects">
-          <a href="/projects/samsung-fire-kimsecretary-media/">삼성화재 전사 영업 지원 플랫폼 멀티미디어 기능 고도화</a>
-          <a href="/projects/samsung-fire-core-platform/">삼성화재 장기 금융 플랫폼 및 채널계 코어 시스템 고도화</a>
-          <a href="/projects/lx-pantos-erp/">LX판토스 대용량 전표시스템 고도화 및 ERP 화면 개발</a>
+          <a href={`${base}projects/samsung-fire-kimsecretary-media/`}>삼성화재 전사 영업 지원 플랫폼 멀티미디어 기능 고도화</a>
+          <a href={`${base}projects/samsung-fire-core-platform/`}>삼성화재 장기 금융 플랫폼 및 채널계 코어 시스템 고도화</a>
+          <a href={`${base}projects/lx-pantos-erp/`}>LX판토스 대용량 전표시스템 고도화 및 ERP 화면 개발</a>
         </div>
       </div>
     </article>
@@ -59,7 +60,7 @@ import Layout from "../layouts/Layout.astro";
           <span>ELK</span>
         </div>
         <div class="timeline-projects">
-          <a href="/projects/kontext-ai-spam-filter/">모바일 통화 AI 스팸차단 애플리케이션 KONTEXT 개발</a>
+          <a href={`${base}projects/kontext-ai-spam-filter/`}>모바일 통화 AI 스팸차단 애플리케이션 KONTEXT 개발</a>
         </div>
       </div>
     </article>
@@ -85,7 +86,7 @@ import Layout from "../layouts/Layout.astro";
           <span>Data Modeling</span>
         </div>
         <div class="timeline-projects">
-          <a href="/projects/toyota-denso-scm/">토요타/덴소 글로벌 제조·물류 SCM 시스템 디지털 전환</a>
+          <a href={`${base}projects/toyota-denso-scm/`}>토요타/덴소 글로벌 제조·물류 SCM 시스템 디지털 전환</a>
           <span>토요타 자동차 금융 렌탈/리스 시스템 코어 구축</span>
         </div>
       </div>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Portfolio">
@@ -107,22 +108,22 @@ import Layout from "../layouts/Layout.astro";
     <h2>Featured Projects</h2>
     <p>프로젝트는 기술 스택보다 문제 상황, 맡은 역할, 성과가 먼저 보이도록 구성했습니다.</p>
     <div class="project-grid">
-      <a href="/projects/samsung-fire-core-platform/">
+      <a href={`${base}projects/samsung-fire-core-platform/`}>
         <span>2023 - 2026</span>
         <strong>삼성화재 장기 금융 플랫폼 및 채널계 코어 시스템 고도화</strong>
         <em>성능 최적화, 외부 연동, 코어 프로세스 개선</em>
       </a>
-      <a href="/projects/kontext-ai-spam-filter/">
+      <a href={`${base}projects/kontext-ai-spam-filter/`}>
         <span>2020 - 2022</span>
         <strong>KONTEXT AI 스팸차단 애플리케이션</strong>
         <em>실시간 AI 분석 API, 트래픽 제어, 서버 아키텍처</em>
       </a>
-      <a href="/projects/toyota-denso-scm/">
+      <a href={`${base}projects/toyota-denso-scm/`}>
         <span>2016 - 2020</span>
         <strong>토요타/덴소 글로벌 제조·물류 SCM 시스템</strong>
         <em>요구사항 정의, 데이터 모델링, 디지털 전환</em>
       </a>
-      <a href="/projects/lx-pantos-erp/">
+      <a href={`${base}projects/lx-pantos-erp/`}>
         <span>2022 - 2023</span>
         <strong>LX판토스 대용량 전표 시스템 고도화</strong>
         <em>대용량 조회 튜닝, ERP 화면 개선</em>
