@@ -295,6 +295,11 @@ p {
   border-top: 4px solid var(--accent);
 }
 
+.project-grid.compact {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 620px;
+}
+
 .project-grid span {
   color: var(--accent);
   font-size: 13px;

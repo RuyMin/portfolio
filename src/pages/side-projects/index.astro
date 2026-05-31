@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout title="Side Projects">
+  <section class="page-heading">
+    <p class="eyebrow">Side Projects</p>
+    <h1>Small experiments, shipped as working software.</h1>
+    <p>
+      개인 프로젝트는 새로운 기술을 검증하고, 실무에서 얻은 문제 해결 방식을 더 작은 단위로 실험하는 공간입니다.
+    </p>
+  </section>
+
+  <section class="project-grid">
+    <a href={`${base}side-projects/portfolio-site/`}>
+      <span>진행 중</span>
+      <strong>개인 포트폴리오 사이트</strong>
+      <em>Astro, MDX, GitHub Pages, GitHub Actions로 구성한 이력서 연동형 포트폴리오</em>
+    </a>
+  </section>
+</Layout>
