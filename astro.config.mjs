@@ -3,5 +3,6 @@ import mdx from "@astrojs/mdx";
 
 export default defineConfig({
   integrations: [mdx()],
-  site: "https://your-github-id.github.io"
+  site: "https://RuyMin.github.io",
+  base: "/portfolio"
 });

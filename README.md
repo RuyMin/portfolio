@@ -7,7 +7,6 @@
 - `About`: 개발자 소개와 핵심 역량
 - `Featured Projects`: 대표 프로젝트 상세 사례
 - `Experience`: 전체 경력 타임라인
-- `Tech Notes`: 실무에서 회수하고 정리할 기술 위키
 
 ## Local Development
 

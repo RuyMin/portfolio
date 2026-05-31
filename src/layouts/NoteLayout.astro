@@ -11,18 +11,20 @@ const { frontmatter } = Astro.props;
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/">Portfolio</a>
-      <nav>
-        <a href="/projects/">Projects</a>
-        <a href="/experience/">Experience</a>
-        <a href="/notes/">Tech Notes</a>
-      </nav>
-    </header>
-    <main class="article">
-      <p class="eyebrow">{frontmatter.description}</p>
-      <h1>{frontmatter.title}</h1>
-      <slot />
-    </main>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/">Portfolio</a>
+        <p class="sidebar-summary">Enterprise SI / Full-stack Developer</p>
+        <nav>
+          <a href="/">Main</a>
+          <a href="/experience/">Experience</a>
+        </nav>
+      </aside>
+      <main class="article">
+        <p class="eyebrow">{frontmatter.description}</p>
+        <h1>{frontmatter.title}</h1>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>

@@ -3,34 +3,130 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Portfolio">
-  <section class="hero">
-    <p class="eyebrow">Full-stack / Enterprise SI Developer</p>
-    <h1>대규모 업무 시스템을 끝까지 안정화하는 개발자</h1>
+  <section class="page-heading">
+    <p class="eyebrow">Main</p>
+    <h1>Enterprise systems, backend architecture, and practical delivery.</h1>
     <p>
       금융, 보험, 물류, 제조, 모바일 AI 서비스 환경에서 백엔드 API, 프론트엔드 화면,
-      데이터베이스, 서버 아키텍처, 외부 시스템 연동을 수행해 온 10년차 개발자입니다.
+      데이터베이스, 서버 아키텍처, 외부 시스템 연동을 수행해 온 10년차 풀스택/SI 개발자입니다.
     </p>
   </section>
 
-  <section>
-    <h2>Core Strengths</h2>
-    <ul class="strengths">
-      <li>Enterprise Backend/API</li>
-      <li>Performance Tuning</li>
-      <li>External System Integration</li>
-      <li>Full-stack Development</li>
-      <li>Legacy Process Digitalization</li>
-      <li>Technical Leadership</li>
-    </ul>
+  <section class="metric-strip" aria-label="career highlights">
+    <article>
+      <strong>10y+</strong>
+      <span>Development Experience</span>
+    </article>
+    <article>
+      <strong>5</strong>
+      <span>Featured Case Studies</span>
+    </article>
+    <article>
+      <strong>3+</strong>
+      <span>Enterprise Domains</span>
+    </article>
+    <article>
+      <strong>Full-stack</strong>
+      <span>Backend to UI/Infra</span>
+    </article>
   </section>
 
-  <section>
+  <section class="dashboard">
+    <article class="panel profile-panel">
+      <p class="panel-label">Profile</p>
+      <h2>10년차 Full-stack / SI Developer</h2>
+      <p>
+        엔터프라이즈 업무 시스템의 신규 구축, 고도화, 운영 안정화, 외부 연동을 폭넓게 경험했습니다.
+        백엔드 중심으로 프론트엔드, DB, 서버 구조까지 이어지는 문제 해결을 선호합니다.
+      </p>
+      <div class="meta-grid">
+        <span>Role</span>
+        <strong>선임 개발자 / 파트 리더</strong>
+        <span>Focus</span>
+        <strong>Backend, API, Performance, Integration</strong>
+        <span>Domain</span>
+        <strong>보험, 금융, 물류, 제조, AI 서비스</strong>
+      </div>
+    </article>
+
+    <article class="panel">
+      <p class="panel-label">Career Summary</p>
+      <h2>요약 타임라인</h2>
+      <ol class="mini-timeline">
+        <li><span>2022 - 현재</span> 크리밸류넷 / 티원아이텍, 삼성화재·LX판토스 프로젝트</li>
+        <li><span>2020 - 2022</span> 리얼네트웍스아시아퍼시픽, KONTEXT 백엔드</li>
+        <li><span>2016 - 2020</span> 스타일시스템, 일본 현지 제조·금융 시스템</li>
+      </ol>
+    </article>
+
+    <article class="panel">
+      <p class="panel-label">Skills</p>
+      <h2>사용 기술</h2>
+      <div class="skill-groups">
+        <div>
+          <h3>Backend</h3>
+          <p>Java, Spring Boot, Spring Framework, REST API</p>
+        </div>
+        <div>
+          <h3>Frontend</h3>
+          <p>Vue.js, Web UI, Admin Screen</p>
+        </div>
+        <div>
+          <h3>Database</h3>
+          <p>OracleDB, MySQL, Query Tuning</p>
+        </div>
+        <div>
+          <h3>Infra / Architecture</h3>
+          <p>MSA, Docker, ELK, AI Infra Integration</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel">
+      <p class="panel-label">Education</p>
+      <h2>학력</h2>
+      <p>학교명, 전공, 기간을 입력하세요.</p>
+      <div class="placeholder">예: OO대학교 컴퓨터공학과 / 20XX.03 - 20XX.02</div>
+    </article>
+
+    <article class="panel">
+      <p class="panel-label">Outside Work</p>
+      <h2>취미</h2>
+      <p>꾸준함과 관찰력을 유지하는 개인 루틴입니다.</p>
+      <div class="tag-list">
+        <span>달리기</span>
+        <span>운동</span>
+        <span>사진</span>
+        <span>여행</span>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-heading">
+    <p class="eyebrow">Case Studies</p>
     <h2>Featured Projects</h2>
-    <div class="links">
-      <a href="/projects/samsung-fire-core-platform/">삼성화재 장기 금융 플랫폼 및 채널계 코어 시스템 고도화</a>
-      <a href="/projects/kontext-ai-spam-filter/">KONTEXT AI 스팸차단 애플리케이션</a>
-      <a href="/projects/toyota-denso-scm/">토요타/덴소 글로벌 제조·물류 SCM 시스템 디지털 전환</a>
-      <a href="/projects/lx-pantos-erp/">LX판토스 대용량 전표 시스템 고도화</a>
+    <p>프로젝트는 기술 스택보다 문제 상황, 맡은 역할, 성과가 먼저 보이도록 구성했습니다.</p>
+    <div class="project-grid">
+      <a href="/projects/samsung-fire-core-platform/">
+        <span>2023 - 2026</span>
+        <strong>삼성화재 장기 금융 플랫폼 및 채널계 코어 시스템 고도화</strong>
+        <em>성능 최적화, 외부 연동, 코어 프로세스 개선</em>
+      </a>
+      <a href="/projects/kontext-ai-spam-filter/">
+        <span>2020 - 2022</span>
+        <strong>KONTEXT AI 스팸차단 애플리케이션</strong>
+        <em>실시간 AI 분석 API, 트래픽 제어, 서버 아키텍처</em>
+      </a>
+      <a href="/projects/toyota-denso-scm/">
+        <span>2016 - 2020</span>
+        <strong>토요타/덴소 글로벌 제조·물류 SCM 시스템</strong>
+        <em>요구사항 정의, 데이터 모델링, 디지털 전환</em>
+      </a>
+      <a href="/projects/lx-pantos-erp/">
+        <span>2022 - 2023</span>
+        <strong>LX판토스 대용량 전표 시스템 고도화</strong>
+        <em>대용량 조회 튜닝, ERP 화면 개선</em>
+      </a>
     </div>
   </section>
 </Layout>
