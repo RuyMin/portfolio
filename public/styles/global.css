@@ -317,7 +317,7 @@ section {
   position: absolute;
   left: 0;
   bottom: -32px;
-  width: 250px;
+  width: 280px;
   padding: 14px;
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface-container) 74%, transparent);
@@ -421,6 +421,13 @@ section {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+.blog-mark {
+  font-family: Geist, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .section-block {
