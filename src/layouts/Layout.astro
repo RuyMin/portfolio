@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <a href={`${base}#experience`} data-section-link="experience">Experience</a>
           <a href={`${base}#skills`} data-section-link="skills">Skills</a>
           <a href={`${base}#projects`} data-section-link="projects">Projects</a>
-          <a href={`${base}#hobbies`} data-section-link="hobbies">Hobbies</a>
+          <a href={`${base}#side-projects`} data-section-link="side-projects">Side Projects</a>
         </nav>
         <button class="theme-toggle" type="button" aria-label="Toggle theme">THEME</button>
       </header>
@@ -57,8 +57,22 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       };
 
       if (sections.length > 0) {
+        const updateActiveAtBottom = () => {
+          const bottomReached =
+            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+
+          if (bottomReached) {
+            setActive("side-projects");
+          }
+        };
+
         const observer = new IntersectionObserver(
           (entries) => {
+            if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+              setActive("side-projects");
+              return;
+            }
+
             const visible = entries
               .filter((entry) => entry.isIntersecting)
               .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -75,6 +89,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
         sections.forEach((section) => observer.observe(section));
         setActive(location.hash ? location.hash.slice(1) : "hero");
+        window.addEventListener("scroll", updateActiveAtBottom, { passive: true });
+        window.addEventListener("resize", updateActiveAtBottom);
+        updateActiveAtBottom();
       }
 
       const revealObserver = new IntersectionObserver(

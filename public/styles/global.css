@@ -231,6 +231,14 @@ section {
   line-height: 1.7;
 }
 
+.hero-copy .profile-note {
+  margin-top: 14px;
+  color: color-mix(in srgb, var(--primary) 72%, var(--on-surface-variant));
+  font-family: JetBrains Mono, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -302,11 +310,6 @@ section {
   border-radius: 23px;
   object-fit: cover;
   object-position: center 18%;
-  filter: grayscale(1);
-  transition: filter 420ms ease;
-}
-
-.portrait-frame:hover img {
   filter: grayscale(0);
 }
 
@@ -594,25 +597,11 @@ section {
   transition: border-color 180ms ease, transform 180ms ease;
 }
 
-.project-image {
-  height: 230px;
-  background:
-    linear-gradient(to top, var(--surface-container), transparent),
-    linear-gradient(135deg, color-mix(in srgb, var(--primary) 35%, transparent), transparent),
-    var(--surface-container-high);
-}
-
-.project-image-ai {
-  background:
-    radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--tertiary) 36%, transparent), transparent 30%),
-    linear-gradient(to top, var(--surface-container), transparent),
-    var(--surface-container-high);
-}
-
 .project-body {
   padding: 28px;
 }
 
+.project-body,
 .project-body.no-image {
   min-height: 260px;
 }
