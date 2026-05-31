@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout title="404 — 페이지를 찾을 수 없습니다" description="요청하신 페이지가 존재하지 않습니다.">
+  <section class="error-page">
+    <div class="error-content reveal">
+      <p class="error-code">404</p>
+      <h1>페이지를 찾을 수 없습니다</h1>
+      <p>요청하신 경로가 존재하지 않거나, 이동되었을 수 있습니다.</p>
+      <div class="hero-actions">
+        <a class="button-primary" href={base}>홈으로 돌아가기</a>
+        <a class="button-ghost" href={`${base}projects/`}>프로젝트 보기</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .error-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 132px var(--grid-gutter) var(--section-gap);
+    text-align: center;
+  }
+
+  .error-content {
+    max-width: 560px;
+  }
+
+  .error-code {
+    margin: 0;
+    color: var(--primary);
+    font-family: Geist, sans-serif;
+    font-size: clamp(96px, 15vw, 160px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    opacity: 0.85;
+  }
+
+  .error-content h1 {
+    margin: 16px 0 12px;
+    color: var(--on-surface);
+    font-family: Geist, sans-serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+  }
+
+  .error-content p {
+    color: var(--on-surface-variant);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+</style>

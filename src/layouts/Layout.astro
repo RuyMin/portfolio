@@ -1,8 +1,11 @@
 ---
-const { title } = Astro.props;
+const { title, description = "금융·보험 도메인 중심 10년차 풀스택 개발자 민순홍의 포트폴리오", image, ogType = "website", mainClass } = Astro.props;
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
+const siteUrl = "https://ruymin.github.io/portfolio";
+const ogImage = image || `${siteUrl}/images/profile.jpg`;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
 
 <!doctype html>
@@ -11,6 +14,24 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="민순홍 포트폴리오" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="stylesheet" href={`${base}styles/global.css`} />
   </head>
   <body>
@@ -26,7 +47,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </nav>
         <button class="theme-toggle" type="button" aria-label="Toggle theme">THEME</button>
       </header>
-      <main>
+      <main class={mainClass}>
         <slot />
       </main>
     </div>
