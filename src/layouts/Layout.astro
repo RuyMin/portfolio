@@ -39,14 +39,27 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <div class="site-shell">
       <header class="topbar">
         <a class="brand" href={base}>MinSoonHong</a>
-        <nav class="top-nav" aria-label="Primary navigation">
+        <nav class="top-nav" id="top-nav" aria-label="Primary navigation">
           <a href={`${base}#hero`} data-section-link="hero">Profile</a>
           <a href={`${base}#experience`} data-section-link="experience">Experience</a>
           <a href={`${base}#skills`} data-section-link="skills">Skills</a>
           <a href={`${base}#projects`} data-section-link="projects">Projects</a>
           <a href={`${base}#side-projects`} data-section-link="side-projects">Side Projects</a>
         </nav>
-        <button class="theme-toggle" type="button" aria-label="Toggle theme">THEME</button>
+        <div class="topbar-actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">THEME</button>
+          <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="top-nav">
+            <svg class="icon-menu" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+            <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="6" x2="18" y2="18"/>
+              <line x1="6" y1="18" x2="18" y2="6"/>
+            </svg>
+          </button>
+        </div>
       </header>
       <main class={mainClass}>
         <slot />
@@ -63,6 +76,23 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
         root.classList.toggle("light");
         localStorage.setItem("theme", root.classList.contains("light") ? "light" : "dark");
       });
+
+      // Mobile menu toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const topNav = document.getElementById("top-nav");
+      if (menuToggle && topNav) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = topNav.classList.toggle("is-open");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+        // Close menu when a nav link is clicked
+        topNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            topNav.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
 
       const links = Array.from(document.querySelectorAll("[data-section-link]"));
       const sections = links
