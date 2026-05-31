@@ -14,21 +14,35 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <link rel="stylesheet" href={`${base}styles/global.css`} />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand" href={base}>Portfolio</a>
-        <p class="sidebar-summary">Enterprise SI / Full-stack Developer</p>
-        <nav>
-          <a href={base}>Main</a>
-          <a href={`${base}experience/`}>Experience</a>
-          <a href={`${base}side-projects/`}>Side Projects</a>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href={base}>MinSoonHong</a>
+        <nav class="top-nav" aria-label="Primary navigation">
+          <a href={`${base}#hero`}>Profile</a>
+          <a href={`${base}#experience`}>Experience</a>
+          <a href={`${base}#skills`}>Skills</a>
+          <a href={`${base}#projects`}>Projects</a>
+          <a href={`${base}#hobbies`}>Hobbies</a>
         </nav>
-      </aside>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">THEME</button>
+      </header>
       <main class="article">
-        <p class="eyebrow">{frontmatter.description}</p>
+        <p class="section-kicker">{frontmatter.description}</p>
         <h1>{frontmatter.title}</h1>
         <slot />
       </main>
     </div>
+    <script>
+      const root = document.documentElement;
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme === "light") {
+        root.classList.add("light");
+      }
+
+      document.querySelector(".theme-toggle")?.addEventListener("click", () => {
+        root.classList.toggle("light");
+        localStorage.setItem("theme", root.classList.contains("light") ? "light" : "dark");
+      });
+    </script>
   </body>
 </html>

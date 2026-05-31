@@ -14,19 +14,85 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <link rel="stylesheet" href={`${base}styles/global.css`} />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand" href={base}>Portfolio</a>
-        <p class="sidebar-summary">Enterprise SI / Full-stack Developer</p>
-        <nav>
-          <a href={base}>Main</a>
-          <a href={`${base}experience/`}>Experience</a>
-          <a href={`${base}side-projects/`}>Side Projects</a>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href={base}>MinSoonHong</a>
+        <nav class="top-nav" aria-label="Primary navigation">
+          <a href={`${base}#hero`} data-section-link="hero">Profile</a>
+          <a href={`${base}#experience`} data-section-link="experience">Experience</a>
+          <a href={`${base}#skills`} data-section-link="skills">Skills</a>
+          <a href={`${base}#projects`} data-section-link="projects">Projects</a>
+          <a href={`${base}#hobbies`} data-section-link="hobbies">Hobbies</a>
         </nav>
-      </aside>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">THEME</button>
+      </header>
       <main>
         <slot />
       </main>
     </div>
+    <script>
+      const root = document.documentElement;
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme === "light") {
+        root.classList.add("light");
+      }
+
+      document.querySelector(".theme-toggle")?.addEventListener("click", () => {
+        root.classList.toggle("light");
+        localStorage.setItem("theme", root.classList.contains("light") ? "light" : "dark");
+      });
+
+      const links = Array.from(document.querySelectorAll("[data-section-link]"));
+      const sections = links
+        .map((link) => {
+          const id = link.getAttribute("data-section-link");
+          return id ? document.getElementById(id) : null;
+        })
+        .filter(Boolean);
+
+      const setActive = (id) => {
+        links.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("data-section-link") === id);
+        });
+      };
+
+      if (sections.length > 0) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (visible?.target?.id) {
+              setActive(visible.target.id);
+            }
+          },
+          {
+            rootMargin: "-22% 0px -58% 0px",
+            threshold: [0.12, 0.24, 0.4, 0.6]
+          }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+        setActive(location.hash ? location.hash.slice(1) : "hero");
+      }
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document.querySelectorAll(".reveal, .glass-card").forEach((element) => {
+        element.classList.add("reveal");
+        revealObserver.observe(element);
+      });
+    </script>
   </body>
 </html>

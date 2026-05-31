@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>외부 API 연동 실패/재시도 설계</title><link rel="stylesheet" href="/portfolio/styles/global.css"></head> <body> <div class="site-shell"> <header class="topbar"> <a class="brand" href="/portfolio/">MinSoonHong</a> <nav class="top-nav" aria-label="Primary navigation"> <a href="/portfolio/#hero">Profile</a> <a href="/portfolio/#experience">Experience</a> <a href="/portfolio/#skills">Skills</a> <a href="/portfolio/#projects">Projects</a> <a href="/portfolio/#hobbies">Hobbies</a> </nav> <button class="theme-toggle" type="button" aria-label="Toggle theme">THEME</button> </header> <main class="article"> <p class="section-kicker">인증, 결제, B2B 인터페이스 연동에서 고려할 장애 처리 기준</p> <h1>외부 API 연동 실패/재시도 설계</h1> <h2 id="situation">Situation</h2>
+<p>외부 시스템과 연동할 때 장애는 예외 상황이 아니라 정상적으로 고려해야 하는 설계 조건입니다.</p>
+<h2 id="checklist">Checklist</h2>
+<ol>
+<li>타임아웃 기준을 명확히 둡니다.</li>
+<li>재시도 가능한 오류와 불가능한 오류를 구분합니다.</li>
+<li>중복 요청이 발생해도 문제가 없도록 idempotency를 고려합니다.</li>
+<li>실패 이력을 추적 가능한 형태로 저장합니다.</li>
+<li>사용자에게 보여줄 상태와 운영자가 확인할 상태를 분리합니다.</li>
+</ol>
+<h2 id="related-projects">Related Projects</h2>
+<ul>
+<li>카카오 간편인증 시스템 연동</li>
+<li>스포츠 안전재단 결제 인터페이스 설계</li>
+<li>B2B 인터페이스 연동</li>
+</ul> </main> </div> <script type="module">const t=document.documentElement,e=localStorage.getItem("theme");e==="light"&&t.classList.add("light");document.querySelector(".theme-toggle")?.addEventListener("click",()=>{t.classList.toggle("light"),localStorage.setItem("theme",t.classList.contains("light")?"light":"dark")});</script> </body> </html>
