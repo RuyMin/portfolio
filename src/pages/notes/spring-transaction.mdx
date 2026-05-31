@@ -1,0 +1,23 @@
+---
+layout: ../../layouts/NoteLayout.astro
+title: Spring Transaction 실무 메모
+description: 트랜잭션 경계, 롤백 조건, 배치 처리에서 자주 확인하는 기준
+---
+
+## Situation
+
+Spring 기반 업무 시스템에서 트랜잭션은 단순 저장 로직보다 외부 연동, 배치, 대용량 처리와 결합될 때 문제가 드러나는 경우가 많습니다.
+
+## Checklist
+
+1. 트랜잭션 경계가 서비스 단위에 맞는지 확인합니다.
+2. 내부 메서드 호출에서 프록시가 적용되는지 확인합니다.
+3. checked exception과 unchecked exception의 롤백 정책을 구분합니다.
+4. 외부 API 호출과 DB 트랜잭션을 같은 경계에 묶어도 되는지 검토합니다.
+5. 배치 처리에서는 전체 롤백과 부분 실패 처리 기준을 먼저 정합니다.
+
+## Notes To Expand
+
+- `REQUIRES_NEW` 사용 기준
+- 외부 연동 후 보상 처리
+- 대량 처리 중 실패 레코드 관리
