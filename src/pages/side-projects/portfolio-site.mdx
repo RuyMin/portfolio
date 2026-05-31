@@ -1,33 +1,44 @@
 ---
 layout: ../../layouts/NoteLayout.astro
 title: 개인 포트폴리오 사이트
-description: Astro와 GitHub Pages로 만든 이력서 연동형 포트폴리오
+description: Astro, MDX, GitHub Pages로 구성한 이력서 연동형 포트폴리오
 ---
 
 ## Overview
 
-이력서에 연결할 수 있는 개인 포트폴리오와 프로젝트 기록 공간을 만들기 위해 시작한 프로젝트입니다.
+- 상태: 진행 중
+- 기술: Astro 5, MDX, CSS (디자인 토큰), GitHub Actions, GitHub Pages
+- URL: https://ruymin.github.io/portfolio
 
 ## Why I Built This
 
-10년간 진행한 실무 프로젝트와 기술 경험을 한 곳에 정리하고, 이후 개인 프로젝트를 누적하기 위한 기반이 필요했습니다.
+10년간 진행한 실무 프로젝트와 기술 경험을 한 곳에 정리하고, 이력서와 연동할 수 있는 포트폴리오 허브가 필요했습니다. 콘텐츠를 MDX로 관리하면서 push만으로 자동 배포되는 구조를 목표로 했습니다.
 
 ## Features
 
-- 경력 타임라인
-- 대표 프로젝트 케이스 스터디
-- Side Projects 목록
-- GitHub Pages 자동 배포
-- 반응형 레이아웃
+- 메인 페이지: Hero, Experience 타임라인, Skills, Projects, Side Projects를 한 페이지에 구성
+- 프로젝트 상세: MDX 기반 케이스 스터디 (Overview → Context → Contributions → Problems → Technical Points → Impact)
+- 다크/라이트 테마 전환 (localStorage 유지)
+- 모바일 햄버거 네비게이션
+- 스크롤 기반 섹션 활성 상태 추적 (IntersectionObserver)
+- 글래스모피즘 카드 + reveal 애니메이션
+- SEO 메타 태그 (Open Graph, Twitter Card)
+- 커스텀 404 페이지
+- SVG favicon
+- GitHub Actions 자동 배포
 
 ## Technical Decisions
 
-- 정적 배포와 문서 기반 관리를 위해 Astro를 선택했습니다.
-- GitHub Pages 배포를 위해 GitHub Actions를 구성했습니다.
-- 프로젝트 사이트 경로 대응을 위해 Astro `base` 설정을 적용했습니다.
+- **Astro 5 + MDX**: 정적 배포와 마크다운 기반 콘텐츠 관리를 위해 선택. 프레임워크 JS 없이 빠른 로딩.
+- **순수 CSS + 디자인 토큰**: CSS 변수 기반 컬러 시스템으로 다크/라이트 테마를 프레임워크 없이 구현.
+- **레이아웃 재사용**: NoteLayout이 Layout을 import하여 헤더/메타/스크립트 중복 제거.
+- **GitHub Pages + base path**: 프로젝트 사이트(`/portfolio`) 경로 대응을 위해 Astro `base` 설정 적용.
+- **반응형**: 980px/640px 브레이크포인트, 모바일에서 햄버거 메뉴로 전환.
 
 ## What I Learned
 
-- Astro의 정적 라우팅 구조
-- GitHub Pages 프로젝트 사이트 배포 방식
-- base path 환경에서 asset/link 경로를 처리하는 방법
+- Astro의 파일 기반 라우팅과 MDX 통합 방식
+- CSS 변수만으로 테마 시스템을 구현하는 방법
+- IntersectionObserver를 활용한 스크롤 기반 UI 패턴
+- GitHub Pages 프로젝트 사이트에서 base path 처리
+- Open Graph / Twitter Card 메타 태그 설정과 플랫폼별 제약 (SVG 미지원 등)
