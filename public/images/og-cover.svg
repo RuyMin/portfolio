@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#131313"/>
+  
+  <!-- Gradient glow effects -->
+  <circle cx="200" cy="100" r="300" fill="rgba(144,238,144,0.08)"/>
+  <circle cx="1000" cy="530" r="280" fill="rgba(98,240,201,0.05)"/>
+
+  <!-- Terminal card -->
+  <rect x="380" y="160" width="440" height="310" rx="16" fill="#201f1f" stroke="#3f493d" stroke-width="1"/>
+  
+  <!-- Terminal dots -->
+  <circle cx="410" cy="190" r="6" fill="#ef4444"/>
+  <circle cx="430" cy="190" r="6" fill="#f59e0b"/>
+  <circle cx="450" cy="190" r="6" fill="#22c55e"/>
+  
+  <!-- Terminal text -->
+  <text x="410" y="240" font-family="monospace" font-size="18" fill="#90ee90">&gt; min.init()</text>
+  <text x="410" y="280" font-family="monospace" font-size="18" fill="#90ee90">&gt; name = "민순홍"</text>
+  <text x="410" y="320" font-family="monospace" font-size="18" fill="#90ee90">&gt; role = "Senior Developer"</text>
+  <text x="410" y="360" font-family="monospace" font-size="18" fill="#90ee90">&gt; focus = "Backend + Architecture"</text>
+  <text x="410" y="400" font-family="monospace" font-size="18" fill="#90ee90">&gt; exp = "10+ years"</text>
+  <text x="410" y="440" font-family="monospace" font-size="16" fill="#3f493d">_</text>
+
+  <!-- Brand -->
+  <text x="600" y="560" font-family="sans-serif" font-size="28" font-weight="700" fill="#90ee90" text-anchor="middle" letter-spacing="-0.5">MinSoonHong</text>
+  <text x="600" y="595" font-family="sans-serif" font-size="16" fill="#899485" text-anchor="middle">Developer Portfolio</text>
+</svg>
